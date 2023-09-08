@@ -10,14 +10,15 @@ const rateFour = document.querySelector(".rate-4");
 const rateFive = document.querySelector(".rate-5");
 const msg = document.querySelector('[data-ratingInfo]');
 
-
+let selectedRating = 0;
 const ratingButtons = [rateOne, rateTwo, rateThree, rateFour, rateFive];
 console.log(ratingButtons.length);
 
 ratingButtons.forEach((button , index) => {
     button.addEventListener('click' , function(){
-        checkRating(index+1);
-    });
+        selectedRating = index + 1;
+        checkRating(selectedRating);
+        });
 });
 
 function checkRating(selectedRating){
@@ -41,7 +42,7 @@ const submitBtn = document.querySelector(".btn-cont");
 const ratingBtn = document.querySelector(".rate-btn");
 
 submitBtn.addEventListener('click' , function(){
-    
+    checkRating(selectedRating);
     thankYouCont.classList.add("active");
     submitContainer.classList.remove("active");
 });
